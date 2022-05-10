@@ -1,0 +1,55 @@
+body {
+    width: auto;
+    font-family: helvetica;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: #ccc;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: url('bg.jpg');
+}
+
+
+
+.content{
+    width: 80%;
+    display: inline-block;
+    text-align: center;
+    background-color: azure;
+    border: solid lightskyblue 3px;
+    border-radius: 10px;
+    
+}
+main {
+    padding: 0%;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: static;
+    overflow: auto;
+}
+ main button{
+     width: 100%;
+ }
+
+footer {
+    margin-left: -10px;
+    padding: 40px;
+    color: white;
+    background-color: #33373d;
+    width: 97%;
+    display: inline-block;
+    text-align: center;
+    font-weight: 100;
+    font-size: 13px;
+}
+
+footer img {
+    height: 60px;
+    width:auto;
+    border-radius: 8px;
+}
+
+.abt{
+    font-size: 17px;
+}

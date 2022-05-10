@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .log {
+        border: solid lightblue 3px;
+        background-color: azure;
+        border-radius: 10px;
+        text-align: center;
+        display: inline-block;
+        width: 30%;
+        font-family: monospace;
+        font-size: 15px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px 8px;
+        margin: 5px 5px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        outline: none;
+        border-radius: 8px;
+    }
+
+    button {
+        background-color: #099e44;
+        color: white;
+        padding: 12px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        width: 10vw;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        opacity: 0.9;
+        font-weight: 600;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+        margin-top: 2px;
+        outline: none;
+    }
+
+    img {
+        margin: 24px 0 12px 0;
+        width: 25%;
+        border-radius: 15px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    .psw {
+        display: block;
+        padding-top: 16px;
+    }
+
+    .psw a {
+        text-decoration: none;
+    }
+
+    .remember,
+    .agree {
+        display: block;
+        margin: 10px;
+    }
+
+    .signup {
+        display: block;
+        margin-left: 30%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="log">
+        <form action="#">
+            <h2 style="font-family: 'Courier New', Courier, monospace;">SIGN UP</h2>
+
+            <div>
+                <img src="icon.jpg">
+            </div>
+            <div class="container">
+
+                <label><b>Enter email id</b></label>
+                <input type="text" placeholder="ID" name="uname" required>
+
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+                <label><b>Enter Password Again</b></label>
+                <input type="password" placeholder="Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+                <label><b>Contact Number</b></label>
+                <input type="text" placeholder="1234567890" name="num" required>
+
+                <a href="/overview"><button type="button">REGISTER</button></a>
+
+                <label class="agree">
+                    <input type="checkbox" value="">Agree to T&C
+                </label>
+                <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+            </div>
+    </div>
+    </form>
+    </div>
+</body>
+
+</html>

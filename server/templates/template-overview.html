@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>YUMM!</title>
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        *,
+        *::before,
+        *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: inherit;
+        }
+        
+        html {
+          font-size: 62.5%;
+          box-sizing: border-box;
+        }
+  
+        body {
+          padding: 5rem 5rem 10rem;
+          line-height: 1.7;
+          font-family: 'Nunito Sans', sans-serif;
+          color: #555;
+          height: auto;
+          background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+          width: 100%;
+          font-family: helvetica;
+          background-position: center;
+        }
+
+        .header {
+          width: 100%;
+          height: auto;
+        }
+        
+        nav {
+            width: 100%;
+            height: 200px;
+            background-color: rgb(197, 57, 57);
+            overflow: auto;
+            z-index: 1;
+            font-family: 'candara', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            text-align: center;
+            font-size: 2.5vh;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        nav ul {
+            width: 100%;
+            position: absolute;
+            top: 42%;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 2vw;
+        }
+
+        nav .login,
+        nav .sign_up {
+            margin: 0 2vw;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(217, 239, 247, 0.911);
+        }
+
+        nav a:hover {
+            color: deepskyblue;
+            font-weight: 300;
+        }
+
+        .search_box {
+            padding-left: 13px;
+            width: 25vw;
+            border: 1.2px solid rgb(3, 221, 250);
+            height: 4.4vh;
+            margin-right: 0%;
+            margin-top: 5px;
+            font-family: "open sans";
+            background-color: aliceblue;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .submit {
+            margin-left: 0%;
+            margin-top: 5px;
+            height: 4.5vh;
+            font-family: "Arvo";
+            font-size: auto;
+            font-weight: lighter;
+            border: none;
+            background: darkorange;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            font-size: 18px;
+            outline: none;
+            cursor: grab;
+        }
+
+        .submit:hover {
+            background: #099e44;
+            font-weight: 600;
+        }
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .accordion span {
+            float: right;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+        
+        .date {
+            font-size: 12px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        footer {
+            list-style: none;
+            height: 30vh;
+            padding: 40px;
+            color: white;
+            background-color: #33373d;
+            width: 100%;
+            text-align: center;
+            font-weight: 100;
+        }
+
+        footer li {
+            list-style: none;
+            margin: 0 7vw;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer img {
+            height: 100px;
+            border-radius: 5px;
+        }
+
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        h1 {
+          font-family: 'Megrim', sans-serif;
+          font-size: 6rem;
+          color: white;
+          transform: skewY(-5deg);
+          text-align: center;
+          position: relative;
+          word-spacing: 3px;
+        }
+  
+        h1::before {
+          content: '';
+          display: block;
+          height: 65%;
+          width: 49%;
+          position: absolute;
+          top: 105%;
+          left: 50%;
+          background: linear-gradient(to bottom, #9be15d, #00e3ae);
+          opacity: 0.8;
+          z-index: -1;
+          transform: skewY(370deg) translate(-50%, -50%);
+        }
+
+        .container {
+          width: 95rem;
+          margin: 0 auto;
+        }
+  
+        .cards-container {
+          margin-top: 8rem;
+        }
+  
+        .card {
+          background: white;
+          box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+          margin-bottom: 5rem;
+          transform: skewX(-20deg);
+          display: flex;
+          transition: all 0.5s;
+        }
+  
+        .card__emoji {
+          font-size: 5.5rem;
+          line-height: 1.2;
+          padding: 1.5rem 6rem 0.5rem 1.5rem;
+          letter-spacing: -4rem;
+          transform: skewX(20deg);
+        }
+  
+        .card__title-box {
+          background: linear-gradient(to bottom, #9be15d, #00e3ae);
+          margin-right: auto;
+          display: flex;
+          align-items: center;
+          padding: 0 3rem;
+        }
+  
+        .card__title {
+          font-family: 'Megrim', sans-serif;
+          color: white;
+          font-size: 3.25rem;
+          transform: skewX(20deg);
+        }
+  
+        .card__details {
+          display: flex;
+        }
+  
+        .card__detail-box {
+          align-self: stretch;
+          border-right: 1px solid #ddd;
+          display: flex;
+          align-items: center;
+        }
+  
+        .card__detail-box:last-child {
+          border: none;
+        }
+  
+        .card__detail {
+          font-weight: 400;
+          font-size: 1.8rem;
+          transform: skewX(20deg);
+          padding: 1.75rem;
+        }
+  
+        .card__detail--organic {
+          font-weight: 900;
+          text-transform: uppercase;
+          font-size: 1.9rem;
+          background-image: linear-gradient(to right, #9be15d, #00e3ae);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+  
+        .card__detail--price {
+          font-weight: 900;
+          font-size: 1.9rem;
+        }
+  
+        .card__link:link,
+        .card__link:visited {
+          flex: 0 0 auto;
+          background-color: #79e17b;
+          color: white;
+          font-size: 1.6rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          text-decoration: none;
+          padding: 2.5rem;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s;
+        }
+  
+        .card__link:hover,
+        .card__link:active {
+          background-color: #9be15d;
+        }
+  
+        .card__link span {
+          transform: skewX(20deg);
+        }
+  
+        .card:hover {
+          transform: skewX(-20deg) scale(1.08);
+          box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+        }
+  
+        .emoji-left {
+          font-size: 2rem;
+          margin-right: 1rem;
+        }
+  
+        .emoji-right {
+          font-size: 2rem;
+          margin-left: 1rem;
+        }
+  
+        .not-organic {
+          display: none;
+        }
+        .product__back:link,
+        .product__back:visited {
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+          font-size: 1.5rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-decoration: none;
+          z-index: 1000;
+          color: #555;
+          background-color: white;
+          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+          border-radius: 100rem;
+          padding: 0 2rem;
+          transition: all 0.3s;
+          display: flex;
+          align-items: center;
+        }
+
+        .product__back:hover,
+        .product__back:active {
+        background-color: #79e17b;
+      }
+    </style>
+</head>
+
+<body>
+    <script src="app.js"></script>
+    <header class="header">
+      <a href="http://localhost:3000/contact" class="product__back">
+        <span class="emoji-left">👈</span>Back
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/overview"><span class="material-icons ">home</span>HOME </a></li>
+          <li><a href="/product?id=0"><span class="material-icons">shopping_cart</span>ORDER NOW</a></li>
+          <li class="search">
+              <form>
+                  <input class="search_box" type="search" placeholder="SEARCH FOODS... ">
+                  <button class="submit" type="submit " form="button " value="Submit "><i class="fa fa-search "></i> FIND FOOD</button>
+              </form>
+          </li>
+          <li>
+              <a class="login" href="/login" target="_parent"><span class="material-icons ">account_circle</span>LOGIN</a>
+              <a class="sign_up " href="/signup"><span class="material-icons ">person_add_alt_1</span>SIGN UP</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="section-card-height">
+        <div class="cards-container">
+            {%PRODUCT_CARDS%}
+        </div>
+    </section>
+    <footer>
+        <img src="logo.jpeg" alt="YUMM FOODS ">
+        <hr color="#ccc">
+        <ul>
+            <li>
+                <div class="popup" onmouseover="aboutus()"><span class="material-icons">info</span>ABOUT US
+                    <span class="popuptext" id="myPopup">we are group of useless engineers here</span>
+                </div>
+            </li>
+            <li><a href="# "><span class="material-icons ">contact_support</span>FAQs</a></li>
+            <li><a href="contact.html"><span class="material-icons ">call</span>CONTACT US</a></li>
+        </ul>
+        <hr color="#ccc">
+        <div><span class=" material-icons ">copyright</span>WEB_TECH_PROJECT 2020</div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+body {
+    text-align: center;
+    padding: 10px;
+}
+
+.log {
+    margin-top: 15vh;
+    border: solid lightblue 3px;
+    background-color: azure;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+    font-family: monospace;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.log input[type="text"],
+.log input[type="password"] {
+    width: 100%;
+    padding: 8px 8px;
+    margin: 5px 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #099e44;
+    color: white;
+    padding: 12px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    width: 10vw;
+    height: auto;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.cancelbtn {
+    width: 10vw;
+    height: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    outline: none;
+    cursor: pointer;
+}
+
+img {
+    margin: 24px 0 12px 0;
+    width: 25%;
+    border-radius: 15px;
+}
+
+.container {
+    padding: 16px;
+}
+
+.psw {
+    display: block;
+    padding-top: 16px;
+}
+
+.psw a {
+    text-decoration: none;
+}
+
+.remember,
+.agree {
+    display: block;
+    margin: 10px;
+}
+
+.signup {
+    display: block;
+    margin-left: 30%;
+}
